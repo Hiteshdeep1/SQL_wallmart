@@ -4,7 +4,7 @@
 
 The primary objective is to transform raw sales data into actionable insights that can help businesses understand customer preferences, identify top-performing products, evaluate sales performance, and make data-driven decisions.
  
-Project Objectives
+## Project Objectives
 
 Analyze overall sales and revenue performance.
 
@@ -20,7 +20,7 @@ Identify sales trends and patterns.
 
 Practice SQL skills such as filtering, aggregation, grouping, sorting, and date-based analysis.
 
-Tools & Technologies
+## Tools & Technologies
 
 Database: PostgreSQL
 
@@ -28,7 +28,12 @@ SQL Tool: pgAdmin 4
 
 Language: SQL
 
-Dataset: Walmart Sales Dataset
+## Project Outcome
+This project demonstrates how SQL can be used to analyze retail sales data, identify business trends, and generate insights to support better business decisions. It also provides a foundation for developing more advanced data analytics projects.
+
+- **Database Creation**: The project starts by creating a database named `SQL_wallmart`.
+
+## Dataset: Walmart Sales Dataset
 /*
 1-Retrieve all records from the orders table.
  2-Beginner   Find all orders where region is 'West'.
@@ -43,51 +48,53 @@ Dataset: Walmart Sales Dataset
 */
 
 
-  1--1-Retrieve all records from the orders table.
-   select * from wall_mart
+1. **Retrieve all records from the orders table**
+```sql
+ select * from wall_mart
+```
 
 
-   2-- Find all orders where region is 'West'.
+2. **Find all orders where region is 'West'**
 
-   select * from wall_mart
-   where region ='West'
+ ```sql
+ select * from wall_mart
+ where region ='West'
+```
 
-   --3-Display order_id, product_name, quantity, and net_sales for orders where net_sales is greater than 10,000.
-
-   select  
+3. **Display order_id, product_name, quantity, and net_sales for orders where net_sales is greater than 10,000**
+```sql
+select  
       order_id, 
 	  product_name, 
 	  quantity,
 	  net_sales
 	  from wall_mart
 	  where net_sales>=1000
+```
 
 
-
-	  --4-Find all orders where status is 'Completed'.
-
-	  select * from wall_mart;
-
-
+4. **Find all orders where status is 'Completed'**
+```sql
+  select * from wall_mart;
+```
 	 Select * from wall_mart
 	 where status ='Completed'
 
 
-	 --5-Calculate the total net sales for each region.
+5.**Calculate the total net sales for each region**
 	 select * from wall_mart
+```sql
+select region, sum(net_sales) as total_netsell
+from wall_mart
+group by region
+order by total_netsell desc
+```
 
-	 select region, sum(net_sales) as total_netsell
-	 from wall_mart
-	 group by region 
-	 order by total_netsell desc
-
-
-	--6-Find the top 5 products with the highest total net sales.
+6.**Find the top 5 products with the highest total net sales**
 	select * from wall_mart
 
-
-
-	select 
+```sql
+select 
 	    order_id,
 		sales_rep,
 		sum(net_sales) as total_sales
@@ -96,50 +103,51 @@ Dataset: Walmart Sales Dataset
 		         sales_rep
 		order by total_sales desc
 	limit 5
+```
 
 
-	--7-Calculate total gross profit for each category.
+7.**Calculate total gross profit for each category**
+select * from wall_mart
+```sql
+select 
+category,
+sum(gross_profit) as gross_total
+from wall_mart
+group by category
+order by gross_total  desc
+```
 
-		select * from wall_mart
-		select 
-		      category,
-			  sum(gross_profit) as gross_total
-			  from wall_mart
-			  group by category
-			  order by gross_total  desc
+8.**Find the total number of orders handled by each sales_rep**
+select * from wall_mart
+```sql
+select 
+sales_rep ,
+count(order_id) as num_order
+from wall_mart
+group by  sales_rep  
+order by num_order desc
+```
 
+9.**Find the top 3 customers who generated the highest total net sales**
+select * from wall_mart
+```sql
+select customer_id, 
+sum(net_sales) as total_netsales
+from wall_mart
+group by   customer_id
+order by customer_id desc
+limit 3
+```
 
-		--8-Find the total number of orders handled by each sales_rep.
-		select * from wall_mart
-
-		select 
-		    sales_rep ,
-			count(order_id) as num_order
-			from wall_mart
-			group by  sales_rep  
-			order by num_order desc
-
-
-	 --9-Find the top 3 customers who generated the highest total net sales.
-
-	 select * from wall_mart
-
-	 select customer_id, 
-		 sum(net_sales) as total_netsales
-		 from wall_mart
-		 group by   customer_id
-		 order by customer_id desc
-		 limit 3
-
-
-		--10-Calculate monthly sales using order_date and identify which month had the highest total net sales.
-
-		   SELECT
-             DATE_TRUNC('month', order_date)::DATE AS sales_month,
-                 SUM(net_sales) AS total_net_sales
-					FROM wall_mart
-					GROUP BY DATE_TRUNC('month', order_date)
-					ORDER BY total_net_sales DESC
+10.**Calculate monthly sales using order_date and identify which month had the highest total net sales**
+```sql
+SELECT
+DATE_TRUNC('month', order_date)::DATE AS sales_month,
+SUM(net_sales) AS total_net_sales
+FROM wall_mart
+GROUP BY DATE_TRUNC('month', order_date)
+ORDER BY total_net_sales DESC
+```
 					LIMIT 1;
 
 
