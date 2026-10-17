@@ -7,25 +7,17 @@ The primary objective is to transform raw sales data into actionable insights th
 ## Project Objectives
 
 Analyze overall sales and revenue performance.
-
 Identify the best-performing product lines and branches.
-
 Understand customer purchasing behavior and preferences.
-
 Analyze popular payment methods.
-
 Evaluate customer ratings and satisfaction.
-
 Identify sales trends and patterns.
-
 Practice SQL skills such as filtering, aggregation, grouping, sorting, and date-based analysis.
 
 ## Tools & Technologies
 
 Database: PostgreSQL
-
 SQL Tool: pgAdmin 4
-
 Language: SQL
 
 ## Project Outcome
@@ -147,8 +139,23 @@ SUM(net_sales) AS total_net_sales
 FROM wall_mart
 GROUP BY DATE_TRUNC('month', order_date)
 ORDER BY total_net_sales DESC
+limit 5
 ```
-					LIMIT 1;
+
+## Findings
+Sales Performance: Analyzed total sales and revenue to understand overall business performance.
+Product Line Analysis: Examined different product lines to identify high-revenue and low-revenue categories.
+Branch Performance: Compared sales across branches and cities to identify top-performing locations.
+Customer Analysis: Evaluated customer types and purchasing patterns to understand customer contributions to sales.
+Payment Method Analysis: Analyzed payment preferences to identify commonly used payment methods.
+
+## Report
+The Walmart  Analysis project focuses on analyzing retail transaction data using SQL and PostgreSQL. The purpose is to extract useful business information from sales records and understand key performance indicators.
+
+## Conclusion
+The Walmart Sales Analysis project provided practical experience in using SQL to analyze retail sales data and answer business questions. By working with PostgreSQL, the project strengthened skills in data aggregation, filtering, grouping, sorting, and extracting meaningful insights from structured datasets.
+
+					
 
 
 
