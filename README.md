@@ -26,18 +26,6 @@ This project demonstrates how SQL can be used to analyze retail sales data, iden
 - **Database Creation**: The project starts by creating a database named `SQL_wallmart`.
 
 ## Dataset: Walmart Sales Dataset
-/*
-1-Retrieve all records from the orders table.
- 2-Beginner   Find all orders where region is 'West'.
-  3-Beginner	Display order_id, product_name, quantity, and net_sales for orders where net_sales is greater than 10,000.
-   4-Beginner	   Find all orders where status is 'Completed'.
-    5-Intermediate	 Calculate the total net sales for each region.
-     6-Intermediate	  Find the top 5 products with the highest total net sales.
-      7-Intermediate	Calculate total gross profit for each category.
-       8-Intermediate	 Find the total number of orders handled by each sales_rep.
-        9-Advanced	      Find the top 3 customers who generated the highest total net sales.
-         10-Advanced	    Calculate monthly sales using order_date and identify which month had the highest total net sales.
-*/
 
 
 1. **Retrieve all records from the orders table**
